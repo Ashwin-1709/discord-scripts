@@ -1,9 +1,8 @@
 import discord
-
 client = discord.Client()
-token = "your-client-token"
+token = "authXXXX"
 
-whitelist = [
+blacklist = [
     
 ]
 
@@ -12,7 +11,7 @@ whitelist = [
 async def on_ready():
     for guild in client.guilds:
         try:
-            if guild.id not in whitelist:
+            if guild.id in blacklist:
                 server = client.get_guild(guild.id)
                 await server.leave()
         except Exception as e:
